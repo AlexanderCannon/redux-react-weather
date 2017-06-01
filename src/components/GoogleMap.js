@@ -1,19 +1,18 @@
 import React, { Component } from 'react';
-
 class GoogleMap extends Component {
 
   componentDidMount() {
-    var myLatlng = new google.maps.LatLng(this.props.lat, this.props.lon);
-    var mapOptions = {
+    var map = new google.maps.Map(this.refs.map, {
       zoom: 12,
-      center: myLatlng
-      //mapTypeId: 'satellite'
-    };
-    var map = new google.maps.Map(this.refs.map, mapOptions);
+      center: {
+        lat: this.props.lat,
+        lng: this.props.lon
+      }
+    });
   }
+
   render() {
-    return (<div ref="map" />
-    );
+    return <div ref="map" />;
   }
 }
 
